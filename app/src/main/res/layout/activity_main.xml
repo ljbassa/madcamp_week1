@@ -4,8 +4,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- 제목 텍스트 -->
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="캡슐리스트"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black" />
+
+    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:scrollbars="vertical" />
 </LinearLayout>

@@ -1,18 +1,8 @@
 package com.example.madcamp_week1
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.madcamp_week1.ui.theme.Madcampweek1Theme
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -22,21 +12,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // RecyclerView 연결
+        // RecyclerView 초기화
         val recyclerView: RecyclerView = findViewById(R.id.rv_list)
 
-        // 데이터 리스트 생성
+        // 리스트 데이터 생성
         val itemList = mutableListOf(
-            Item("첫 번째 텍스트"),
-            Item("두 번째 텍스트"),
-            Item("세 번째 텍스트"),
-            Item("네 번째 텍스트"),
-            Item("다섯 번째 텍스트")
+            Item("몰입캠프에서의 추억"),
+            Item("가족 여행"),
+            Item("2024 크리스마스"),
+            Item("고등학교 졸업식"),
+            Item("강릉 우정 여행")
         )
 
         // RecyclerView 설정
-        recyclerView.layoutManager = LinearLayoutManager(this) // 세로 방향으로 설정
-        recyclerView.adapter = RecyclerViewAdapter(itemList)   // 어댑터 연결
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = RecyclerViewAdapter(itemList)
+
+        // Divider 추가
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        )
     }
 }
-

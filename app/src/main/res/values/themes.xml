@@ -2,9 +2,14 @@
 <resources>
     <!-- AppCompat 기반 테마 -->
     <style name="Theme.Madcampweek1" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- 원하는 스타일 속성 추가 -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
-        <item name="colorAccent">@color/teal_200</item>
+        <!-- 색상을 투명으로 설정 -->
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="colorAccent">@android:color/transparent</item>
+
+        <!-- 상태바와 내비게이션바도 투명으로 설정 가능 -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
 </resources>
+
