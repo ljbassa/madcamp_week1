@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Madcamp-week1</string>
+    <string name="select_photos_button">+</string>
 </resources>

@@ -1,18 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp">
+    android:padding="8dp">
 
-    <!-- 리스트 아이템 텍스트 -->
+    <!-- 날짜 헤더 -->
     <TextView
-        android:id="@+id/item_text"
+        android:id="@+id/dateHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:padding="8dp"
+        android:text="날짜"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- GridView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="437dp"
+        android:overScrollMode="never" />
 </LinearLayout>
