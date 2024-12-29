@@ -6,25 +6,33 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import android.widget.Button // Button 임포트
 
-class PhotoAdapter(private val photos: List<Pair<Long, ByteArray>>) : RecyclerView.Adapter<PhotoAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val imageView: ImageView = view.findViewById(R.id.imageView)
+class PhotoAdapter(
+    private val photos: List<Pair<Long, ByteArray>>,
+    private val onDeleteClick: (Int) -> Unit
+) : RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder>() {
+
+    inner class PhotoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        val deleteButton: Button = itemView.findViewById(R.id.deleteButton)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.photo_item, parent, false)
-        return ViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.photo_item, parent, false)
+        return PhotoViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val (_, imageBlob) = photos[position]
-
-        // BLOB 데이터를 Bitmap으로 변환하여 ImageView에 설정
-        val bitmap = BitmapFactory.decodeByteArray(imageBlob, 0, imageBlob.size)
+    override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
+        val photo = photos[position]
+        val bitmap = BitmapFactory.decodeByteArray(photo.second, 0, photo.second.size)
         holder.imageView.setImageBitmap(bitmap)
+        holder.deleteButton.setOnClickListener {
+            onDeleteClick(position)
+        }
     }
 
-    override fun getItemCount(): Int = photos.size
+    override fun getItemCount() = photos.size
 }

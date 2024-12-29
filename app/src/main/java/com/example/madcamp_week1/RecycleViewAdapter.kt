@@ -21,7 +21,7 @@ class RecyclerViewAdapter(private var itemList: MutableList<Item>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // 현재 아이템 가져오기
         val currentItem = itemList[position]
-        holder.binding.itemText.text = currentItem.text // list_item.xml의 TextView ID
+        holder.binding.dateHeader.text = currentItem.text // list_item.xml의 TextView ID
     }
 
     override fun getItemCount(): Int {

@@ -70,6 +70,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
     }
 
+    fun deleteImageFromGallery(id: Long): Boolean {
+        val db = writableDatabase
+        val result = db.delete(TABLE_NAME2, "$GALLERY_ID=?", arrayOf(id.toString()))
+        return result > 0
+    }
+
     // 갤러리 테이블에서 모든 이미지 로드
     fun getAllImagesFromGallery(): List<Pair<Long, ByteArray>> {
         val db = readableDatabase
