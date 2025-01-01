@@ -2,7 +2,7 @@
 몰입캠프 1주차 과제입니다.
 
 # 타임노트 4.5
-![아이콘](https://github.com/ljbassa/madcamp_week1/blob/main/images/KakaoTalk_Photo_2025-01-01-17-10-54.png)
+![아이콘](https://github.com/KKANGCHONG/madcamp_week1/blob/main/images/KakaoTalk_Photo_2025-01-01-17-10-54.png)
 ## 사진과 텍스트, 위치 업로드 기능을 제공하며 일정 시간 뒤에 이를 볼 수 있는 타임 캡슐 어플
 
 ---
